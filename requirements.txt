@@ -1,0 +1,8 @@
+rdkit==2023.9.2
+chembl_structure_pipeline==1.2
+deepchem==2.8
+sklearn==0.24
+xgboost==2.0
+tensorflow==2.15
+numpy==1.24
+pandas==2.1

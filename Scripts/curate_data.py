@@ -80,7 +80,7 @@ df_valid['SMILES'] = df_valid['SMILES'].apply(standardize_and_canonicalize)
 print('Original combined data after SMILES standardization', df_valid.shape[0])
 
 df_valid = df_valid[['SMILES','Value']].reset_index(drop=True)
-#df_valid.to_csv('../Data/Input/M1_public_wActivity.csv')
+df_valid.to_csv('../Data/Input/M1_public_wActivity.csv')
 
 '''
 3. Label the data as actives and inactives based the range defined earlier
@@ -175,7 +175,5 @@ training_set = training_set.drop(source).reset_index(drop=True)
 print('Final training set',training_set['Activity'].value_counts())
 print('Ext Test set',ext_test_set['Activity'].value_counts())
 
-#training_set[['SMILES','Activity']].to_csv('../Data/Training/M1_training_set_{}_{}.csv'.format(active_range, inactive_range), index=False)
-
-#Save the test set only when inactive range is 10
-#ext_test_set[['SMILES','Activity']].to_csv('../Data/Test/M1_test_scaffold_split.csv', index=False)
+training_set[['SMILES','Activity']].to_csv('../Data/Training/M1_training_set.csv', index=False)
+ext_test_set[['SMILES','Activity']].to_csv('../Data/Test/M1_test_scaffold_split.csv', index=False)

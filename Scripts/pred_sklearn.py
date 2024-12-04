@@ -35,7 +35,7 @@ def computeMorganFP(mol, depth=2, nBits=1024):
 Load the training set
 '''
 
-training_set = pd.read_csv('../Data/Training/M1_training_set_1_10.csv', index_col=None)
+training_set = pd.read_csv('../Data/Training/M1_training_set.csv', index_col=None)
 PandasTools.AddMoleculeColumnToFrame(frame=training_set, smilesCol='SMILES', molCol='Molecule')
 training_set['Morgan2FP'] = training_set['Molecule'].map(computeMorganFP)
 X_train_ext = training_set.Morgan2FP
@@ -72,7 +72,7 @@ for i in range (len(folds)):
 
     validation.loc[i,:] = [sensitivity,specificity,mcc,roc_auc,g_mean]
 
-validation.to_csv('../Data/Results/{}_validation_1_10.csv'.format(model))
+validation.to_csv('../Data/Results/{}_validation.csv'.format(model))
 
-with open('../Data/Models/{}_1_10.pkl'.format(model),'wb') as f:
+with open('../Data/Models/{}.pkl'.format(model),'wb') as f:
     pickle.dump(clf,f)

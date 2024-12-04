@@ -42,7 +42,7 @@ def computeMorganFP(mol, depth=2, nBits=1024):
 2. Combine them with labels, standardize the SMILES and remove duplicates
 '''
 
-training_set = pd.read_csv('../Data/Training/M1_training_set_1_10.csv', index_col=None)
+training_set = pd.read_csv('../Data/Training/M1_training_set.csv', index_col=None)
 
 rnn_inactives = pd.read_csv('../Data/Input/M1_RNN_inactives.csv', index_col=0)
 rnn_inactives.columns = ['SMILES']
@@ -123,4 +123,4 @@ final_training_set = final_training_set.drop(source).reset_index(drop=True)
 print('Final training set',final_training_set['Activity'].value_counts())
 print('Ext Test set',ext_test_set['Activity'].value_counts())
 
-final_training_set[['SMILES','Activity']].to_csv('../Data/Training/M1_training_set_RNN_1_10.csv', index=False)
+final_training_set[['SMILES','Activity']].to_csv('../Data/Training/M1_training_set_RNN.csv', index=False)

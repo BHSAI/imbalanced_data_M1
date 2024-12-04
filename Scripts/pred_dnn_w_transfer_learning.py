@@ -31,27 +31,18 @@ def metrics_calc(data):
     return(data)
 
 '''
-Inactive range options:
-10: Original DNN
-2: Boundary adjustment
-10_RNN: RNN added training set
-'''
-
-inactive_range = '10'
-
-'''
 Load the training and test sets, and GLASS database for transfer learning as Morgan fingerprints
 '''
 
-training_set = pd.read_csv('../Data/Training/M1_training_set_1_{}_FPs.csv'.format(inactive_range), index_col=0)
+training_set = pd.read_csv('../Data/Training/M1_training_set_FPs.csv', index_col=0)
 train_labels = np.asarray(training_set.pop('Activity')).reshape(training_set.shape[0],1)
 train_features = np.array(training_set)
 
-ext_test_set =  pd.read_csv('../Data/Test/M1_test_scaffold_split_FPs.csv'.format(inactive_range), index_col=0)
+ext_test_set =  pd.read_csv('../Data/Test/M1_test_scaffold_split_FPs.csv', index_col=0)
 ext_test_set_labels = np.asarray(ext_test_set.pop('Activity')).reshape(ext_test_set.shape[0],1)
 ext_test_set_features = np.array(ext_test_set)
 
-gpcr_tl = pd.read_csv('../Data/Training/TL_GLASS_1_10_FPs.csv', index_col=0)
+gpcr_tl = pd.read_csv('../Data/Training/TL_GLASS_FPs.csv', index_col=0)
 gpcr_tl_labels = np.asarray(gpcr_tl.pop('Activity')).reshape(gpcr_tl.shape[0],1)
 gpcr_tl_features = np.array(gpcr_tl)
 
@@ -148,8 +139,8 @@ for repeats in range(10):
     tl_validation.loc[repeats,:] =  tl_results[repeats][0]
     tl_ext_results.loc[repeats,:] = tl_results[repeats][1]
 
-pd.DataFrame(metrics_calc(dnn_validation))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/dnn_validation_1_{}.csv'.format(inactive_range))
-pd.DataFrame(metrics_calc(dnn_ext_results))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/dnn_ext_1_{}.csv'.format(inactive_range)) 
-pd.DataFrame(metrics_calc(tl_validation))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/tl_validation_1_{}.csv'.format(inactive_range))
-pd.DataFrame(metrics_calc(tl_ext_results))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/tl_ext_1_{}.csv'.format(inactive_range))
+pd.DataFrame(metrics_calc(dnn_validation))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/dnn_validation.csv')
+pd.DataFrame(metrics_calc(dnn_ext_results))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/dnn_ext.csv') 
+pd.DataFrame(metrics_calc(tl_validation))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/tl_validation.csv')
+pd.DataFrame(metrics_calc(tl_ext_results))[['Sensitivity','Specificity','MCC','ROC-AUC','G-Mean']].to_csv('../Data/Results/tl_ext.csv')
 

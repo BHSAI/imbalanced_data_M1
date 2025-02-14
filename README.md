@@ -26,6 +26,7 @@ This repository contains the data, scripts, and models used in this study. They 
 To run the python script, you will first need Anaconda installed. From an Anaconda prompt, set up a new environment using the following commands:
 
 conda create -n imbalanced_m1 python=3.9
+
 conda activate imbalanced_m1
 
 Next, navigate to this repository's folder and enter the following command to install dependencies:

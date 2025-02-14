@@ -1,0 +1,25 @@
+# REINVENT4 TOML input example for sampling
+#
+
+run_type = "sampling"
+device = "cpu"  # set torch device e.g. "cpu"
+json_out_config = "_sampling.json"  # write this TOML to JSON
+
+
+[parameters]
+
+# Uncomment one of the comment blocks below.  Each generator needs a model
+# file and possibly a SMILES file with seed structures.
+
+## Mol2Mol: find molecules similar to the provided molecules
+#model_file = "priors/mol2mol_similarity.prior"
+model_file = "TL_Mol2Mol_1.model"
+smiles_file = "M1_training_set_1_10_inactives.csv"  # 1 compound per line
+sample_strategy = "multinomial"  # multinomial or beamsearch (deterministic)
+temperature = 1.0 # temperature in multinomial sampling
+
+output_file = 'sampling_multinomial_scaffold_TL_1.csv'  # sampled SMILES and NLL in CSV format
+
+num_smiles = 100  # number of SMILES to be sampled, 1 per input SMILES
+unique_molecules = true  # if true remove all duplicatesd canonicalize smiles
+randomize_smiles = true # if true shuffle atoms in SMILES randomly

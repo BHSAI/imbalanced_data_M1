@@ -43,4 +43,3 @@ python pred_sklearn.py
 
 ### Running the DNN and transfer learning models
 python pred_dnn_w_transfer_learning.py
-: 

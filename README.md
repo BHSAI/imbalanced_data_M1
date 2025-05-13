@@ -3,6 +3,8 @@
  
 ![Summary](Data/summary.png)
 
+Sci Rep 15, 16486 (2025). https://doi.org/10.1038/s41598-025-00972-w (https://www.nature.com/articles/s41598-025-00972-w)
+
 ## Abstract
 Muscarinic receptor subtype 1 (M1) is a G protein-coupled receptor (GPCR) and a key pharmacological target for peripheral neuropathy, chronic obstructive pulmonary disease, nerve agent exposures, and cognitive disorders. Screening and identifying compounds with potential to interact with M1 will aid in rational drug design for these disorders. In this work, we developed machine learning-based M1 classification models utilizing publicly available bioactivity data. As inactive compounds are rarely reported in the literature, we encountered the problem of imbalanced datasets. We investigated two strategies to overcome this bottleneck: 1) transfer learning and 2) using generative models to oversample the inactive class. Our analysis shows that these approaches reduced misclassification of the inactive class not only for M1 but also for other GPCR targets. Overall, we have developed classification models for M1 receptor that will enable rapid screening of large chemical databases and advance drug discovery.
 

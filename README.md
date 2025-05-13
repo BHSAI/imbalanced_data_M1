@@ -42,7 +42,7 @@ pip install -r requirements.txt
 python curate_data.py 
 
 ### Running the NB/RF/XG models
-python pred_sklearn.py
+python pred_sklearn.py --model (nb/rf/xg)
 
 ### Running the DNN and transfer learning models
 python pred_dnn_w_transfer_learning.py

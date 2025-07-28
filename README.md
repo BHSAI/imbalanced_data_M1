@@ -1,7 +1,7 @@
 # Developing muscarinic receptor M1 classification models utilizing transfer learning and generative AI techniques
 
  
-![Summary](Data/summary.png)
+![Summary](Data/summary.jpg)
 
 This work is now published at [Scientific Reports](https://doi.org/10.1038/s41598-025-00972-w)
 
